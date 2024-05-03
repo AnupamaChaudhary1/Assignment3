@@ -52,6 +52,7 @@ namespace Vidhyalaya.Pages_Students
             {
                 Student = student;
                 _context.Students.Remove(Student);
+                
                 await _context.SaveChangesAsync();
             }
 
@@ -59,3 +60,9 @@ namespace Vidhyalaya.Pages_Students
         }
     }
 }
+
+//     internal class studentToUpdate
+//     {
+//         public static string Status { get; internal set; }
+//     }
+// }
