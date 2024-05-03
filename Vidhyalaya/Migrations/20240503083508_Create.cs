@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Vidhyalaya.Migrations
 {
     /// <inheritdoc />
-    public partial class DbCreate : Migration
+    public partial class Create : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace Vidhyalaya.Migrations
                     Label = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ClassTeacher = table.Column<string>(type: "TEXT", nullable: false),
-                    Medium = table.Column<string>(type: "TEXT", nullable: false),
+                    Medium = table.Column<int>(type: "INTEGER", nullable: false),
                     Subject = table.Column<string>(type: "TEXT", nullable: false),
                     Session = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
@@ -28,16 +28,18 @@ namespace Vidhyalaya.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Guardian",
+                name: "Guardians",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Address = table.Column<string>(type: "TEXT", nullable: false),
                     Contact = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Guardian", x => x.Name);
+                    table.PrimaryKey("PK_Guardians", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -48,25 +50,28 @@ namespace Vidhyalaya.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Address = table.Column<string>(type: "TEXT", nullable: false),
+                    sex = table.Column<int>(type: "INTEGER", nullable: false),
                     Dob = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Photo = table.Column<byte[]>(type: "BLOB", nullable: false),
-                    GuardianDetailsName = table.Column<string>(type: "TEXT", nullable: false)
+                    Photo = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Students", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Students_Guardian_GuardianDetailsName",
-                        column: x => x.GuardianDetailsName,
-                        principalTable: "Guardian",
-                        principalColumn: "Name",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Students_GuardianDetailsName",
-                table: "Students",
-                column: "GuardianDetailsName");
+            migrationBuilder.CreateTable(
+                name: "Subjects",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    SubjectName = table.Column<string>(type: "TEXT", nullable: false),
+                    Code = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Subjects", x => x.Id);
+                });
         }
 
         /// <inheritdoc />
@@ -76,10 +81,13 @@ namespace Vidhyalaya.Migrations
                 name: "Grades");
 
             migrationBuilder.DropTable(
+                name: "Guardians");
+
+            migrationBuilder.DropTable(
                 name: "Students");
 
             migrationBuilder.DropTable(
-                name: "Guardian");
+                name: "Subjects");
         }
     }
 }
