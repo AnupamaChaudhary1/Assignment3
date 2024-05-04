@@ -19,10 +19,23 @@
                 <input asp-for="Student.Address" class="form-control" />
                 <span asp-validation-for="Student.Address" class="text-danger"></span>
             </div>
+            @* <div class="form-group">
+            <label asp-for="Student.sex" class="control-label"></label>
+            <select asp-for="Student.sex" class="form-control"></select>
+            <span asp-validation-for="Student.sex" class="text-danger"></span>
+            </div> *@
             <div class="form-group">
-                <label asp-for="Student.sex" class="control-label"></label>
-                <select asp-for="Student.sex" class="form-control"></select>
-                <span asp-validation-for="Student.sex" class="text-danger"></span>
+                <label asp-for="Student.Gender" class="control-label"></label>
+
+                <label>
+                    <input type="radio" asp-for="Student.Gender" value="Male" /> Male
+                </label>
+                <label>
+                    <input type="radio" asp-for="Student.Gender" value="Female" /> Female
+                </label>
+                <!-- Add more options as needed -->
+
+                <span asp-validation-for="Student.Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Student.Dob" class="control-label"></label>
@@ -33,6 +46,11 @@
                 <label asp-for="Student.Photo" class="control-label"></label>
                 <input asp-for="Student.Photo" class="form-control" />
                 <span asp-validation-for="Student.Photo" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Student.IsActive" /> @Html.DisplayNameFor(model => model.Student.IsActive)
+                </label>
             </div><br>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -41,9 +59,3 @@
         </form>
     </div>
 </div>
-
-
-    
-
-
-
