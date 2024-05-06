@@ -53,6 +53,8 @@ namespace Vidhyalaya.Migrations
                     Gender = table.Column<string>(type: "TEXT", nullable: false),
                     Dob = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Photo = table.Column<string>(type: "TEXT", nullable: true),
+                    StartDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "TEXT", nullable: true),
                     IsActive = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

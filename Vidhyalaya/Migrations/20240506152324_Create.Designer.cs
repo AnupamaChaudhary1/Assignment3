@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Vidhyalaya.Migrations
 {
     [DbContext(typeof(VidhyalayaDbContext))]
-    [Migration("20240504145645_Create")]
+    [Migration("20240506152324_Create")]
     partial class Create
     {
         /// <inheritdoc />
@@ -80,6 +80,9 @@ namespace Vidhyalaya.Migrations
                     b.Property<DateTime>("Dob")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -92,6 +95,9 @@ namespace Vidhyalaya.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Photo")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

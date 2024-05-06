@@ -47,9 +47,19 @@
                 <input asp-for="Student.Photo" class="form-control" />
                 <span asp-validation-for="Student.Photo" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Student.StartDate" class="control-label"></label>
+                <input asp-for="Student.StartDate" class="form-control" />
+                <span asp-validation-for="Student.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.EndDate" class="control-label"></label>
+                <input asp-for="Student.EndDate" class="form-control" />
+                <span asp-validation-for="Student.EndDate" class="text-danger"></span>
+            </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Student.IsActive" /> @Html.DisplayNameFor(model => model.Student.IsActive)
+                    <input class="form-check-input" asp-for="Student.IsActive" checked /> @Html.DisplayNameFor(model => model.Student.IsActive)
                 </label>
             </div><br>
             <div class="form-group">

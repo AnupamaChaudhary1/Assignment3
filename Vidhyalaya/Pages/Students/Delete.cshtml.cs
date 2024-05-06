@@ -50,6 +50,7 @@ namespace Vidhyalaya.Pages_Students
             var student = await _context.Students.FindAsync(id);
             if (student != null)
             {
+                student.EndDate=DateTime.Today;
                 student.IsActive = false;
                 // Student = student;
                 // _context.Students.Remove(Student);
