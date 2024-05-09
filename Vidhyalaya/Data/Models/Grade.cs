@@ -9,11 +9,11 @@ public class Grade
     public Medium Medium { get; set; }
     public string Subject { get; set; }
     public DateTime Session { get; set; }
-   
+    // public List<Student> Students {get; set;}
 }
 public enum Medium
-   {
+{
     English,
     Nepali,
     Others
-   }
+}

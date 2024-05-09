@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Vidhyalaya.Pages_Students
+namespace Vidhyalaya.Pages_Guardians
 {
     public class IndexModel : PageModel
     {
@@ -17,11 +17,11 @@ namespace Vidhyalaya.Pages_Students
             _context = context;
         }
 
-        public IList<Student> Student { get;set; } = default!;
+        public IList<Guardian> Guardian { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Student = await _context.Students.Include(x=>x.Grade).ToListAsync();
+            Guardian = await _context.Guardians.Include(x=>x.Student).ToListAsync();
         }
     }
 }

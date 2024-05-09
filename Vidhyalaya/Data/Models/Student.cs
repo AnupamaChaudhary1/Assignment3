@@ -6,8 +6,11 @@ public class Student
     public string Gender { get; set; }
     public DateTime Dob { get; set; }
     public string? Photo { get; set; }
-    public DateTime StartDate {get; set;}
-    public DateTime? EndDate {get; set;}
+    public DateTime StartDate { get; set; }
+    public DateTime? EndDate { get; set; }
     public bool IsActive { get; set; }
+    public int? GradeLabel { get; set; }
+    public Grade? Grade { get; set; }
+    
 }
 
