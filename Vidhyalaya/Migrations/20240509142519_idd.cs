@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Vidhyalaya.Migrations
 {
     /// <inheritdoc />
-    public partial class Data : Migration
+    public partial class idd : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,8 +15,9 @@ namespace Vidhyalaya.Migrations
                 name: "Grades",
                 columns: table => new
                 {
-                    Label = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Label = table.Column<int>(type: "INTEGER", nullable: false),
                     ClassTeacher = table.Column<string>(type: "TEXT", nullable: false),
                     Medium = table.Column<int>(type: "INTEGER", nullable: false),
                     Subject = table.Column<string>(type: "TEXT", nullable: false),
@@ -24,7 +25,7 @@ namespace Vidhyalaya.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Grades", x => x.Label);
+                    table.PrimaryKey("PK_Grades", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -41,16 +42,16 @@ namespace Vidhyalaya.Migrations
                     StartDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     EndDate = table.Column<DateTime>(type: "TEXT", nullable: true),
                     IsActive = table.Column<bool>(type: "INTEGER", nullable: false),
-                    GradeLabel = table.Column<int>(type: "INTEGER", nullable: true)
+                    GradeId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Students", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Students_Grades_GradeLabel",
-                        column: x => x.GradeLabel,
+                        name: "FK_Students_Grades_GradeId",
+                        column: x => x.GradeId,
                         principalTable: "Grades",
-                        principalColumn: "Label");
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -80,9 +81,9 @@ namespace Vidhyalaya.Migrations
                 column: "StudentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Students_GradeLabel",
+                name: "IX_Students_GradeId",
                 table: "Students",
-                column: "GradeLabel");
+                column: "GradeId");
         }
 
         /// <inheritdoc />

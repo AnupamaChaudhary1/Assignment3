@@ -25,7 +25,7 @@ namespace Vidhyalaya.Pages_Students
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             Grades = _context.Grades
-            .Select(x => new SelectListItem { Text = x.ClassTeacher, Value = x.Label.ToString() })
+            .Select(x => new SelectListItem { Text = x.ClassTeacher, Value = x.Id.ToString() })
             .ToList();
             if (id == null)
             {

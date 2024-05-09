@@ -21,7 +21,7 @@ namespace Vidhyalaya.Pages_Students
         public IActionResult OnGet()
         {
             Grades = _context.Grades
-            .Select(x => new SelectListItem { Text = x.ClassTeacher, Value = x.Label.ToString() })
+            .Select(x => new SelectListItem { Text = x.ClassTeacher, Value = x.Id.ToString() })
             .ToList();
             return Page();
         }

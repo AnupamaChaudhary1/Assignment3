@@ -9,7 +9,7 @@ public class Student
     public DateTime StartDate { get; set; }
     public DateTime? EndDate { get; set; }
     public bool IsActive { get; set; }
-    public int? GradeLabel { get; set; }
+    public int? GradeId { get; set; }
     public Grade? Grade { get; set; }
     
 }
