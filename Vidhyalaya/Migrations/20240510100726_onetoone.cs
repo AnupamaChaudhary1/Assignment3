@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Vidhyalaya.Migrations
 {
     /// <inheritdoc />
-    public partial class idd : Migration
+    public partial class onetoone : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -78,7 +78,8 @@ namespace Vidhyalaya.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Guardians_StudentId",
                 table: "Guardians",
-                column: "StudentId");
+                column: "StudentId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Students_GradeId",

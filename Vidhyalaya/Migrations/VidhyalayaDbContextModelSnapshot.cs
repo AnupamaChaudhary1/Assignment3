@@ -67,7 +67,8 @@ namespace Vidhyalaya.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StudentId");
+                    b.HasIndex("StudentId")
+                        .IsUnique();
 
                     b.ToTable("Guardians");
                 });
@@ -118,8 +119,8 @@ namespace Vidhyalaya.Migrations
             modelBuilder.Entity("Guardian", b =>
                 {
                     b.HasOne("Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId");
+                        .WithOne("Guardian")
+                        .HasForeignKey("Guardian", "StudentId");
 
                     b.Navigation("Student");
                 });
@@ -131,6 +132,11 @@ namespace Vidhyalaya.Migrations
                         .HasForeignKey("GradeId");
 
                     b.Navigation("Grade");
+                });
+
+            modelBuilder.Entity("Student", b =>
+                {
+                    b.Navigation("Guardian");
                 });
 #pragma warning restore 612, 618
         }

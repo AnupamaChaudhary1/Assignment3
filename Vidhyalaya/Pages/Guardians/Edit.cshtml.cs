@@ -20,13 +20,10 @@ namespace Vidhyalaya.Pages_Guardians
 
         [BindProperty]
         public Guardian Guardian { get; set; } = default!;
-        public List<SelectListItem> Students {get; set;}
-
+        
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            Students=_context.Students
-            .Select(x=> new SelectListItem {Text=x.Name, Value=x.Id.ToString() })
-            .ToList();
+        
             if (id == null)
             {
                 return NotFound();
@@ -38,6 +35,7 @@ namespace Vidhyalaya.Pages_Guardians
                 return NotFound();
             }
             Guardian = guardian;
+            ViewData["StudentId"] =new SelectList(_context.Students, "Id", "Id");
             return Page();
         }
 

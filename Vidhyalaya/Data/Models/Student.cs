@@ -11,6 +11,7 @@ public class Student
     public bool IsActive { get; set; }
     public int? GradeId { get; set; }
     public Grade? Grade { get; set; }
-    
+    public Guardian? Guardian { get; set; }
+
 }
 
