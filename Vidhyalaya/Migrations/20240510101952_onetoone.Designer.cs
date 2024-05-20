@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Vidhyalaya.Migrations
 {
     [DbContext(typeof(VidhyalayaDbContext))]
-    [Migration("20240510100726_onetoone")]
+    [Migration("20240510101952_onetoone")]
     partial class onetoone
     {
         /// <inheritdoc />
