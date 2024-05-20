@@ -23,7 +23,7 @@ namespace Vidhyalaya.Pages_Grades
 
         public async Task OnGetAsync()
         {
-            Console.WriteLine($"Filtering by Year: {Year}");
+            //Console.WriteLine($"Filtering by Year: {Year}");
             var grades = from g in _context.Grades
                          select g;
 
